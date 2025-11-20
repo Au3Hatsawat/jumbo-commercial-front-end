@@ -60,7 +60,7 @@ const ProductCard = ({ product, handleProductSelect }: ProductCardProps) => {
                 <p className="font-semibold text-sm text-gray-900 truncate mb-1">
                     {product.name}
                 </p>
-                <p className="text-xs text-gray-500 mb-2">{product.unitType}</p>
+                <p className="text-xs text-gray-500 mb-2">{product.unit.nameTh}</p>
                 <p className="text-xl font-bold text-emerald-600">
                     ฿{parseFloat(product.sellingPrice.toString()).toFixed(2)}
                 </p>
