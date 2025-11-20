@@ -1,16 +1,5 @@
 # Jumbo Commercial Frontend
 
-Frontend application สำหรับระบบ Jumbo Commercial พัฒนาด้วย Next.js 16, React 19, TypeScript และ Tailwind CSS
-
-## 📋 สารบัญ
-
-- [โครงสร้างโปรเจค](#โครงสร้างโปรเจค)
-- [เทคโนโลยีที่ใช้](#เทคโนโลยีที่ใช้)
-- [การติดตั้ง](#การติดตั้ง)
-- [การใช้งาน](#การใช้งาน)
-- [Git Workflow](#git-workflow)
-- [โครงสร้างโฟลเดอร์](#โครงสร้างโฟลเดอร์)
-
 ## 📁 โครงสร้างโปรเจค
 
 ```
@@ -20,17 +9,14 @@ jumbo-commercial-front-end/
 │   ├── (main)/
 │   │   ├── customers/
 │   │   │   ├── page.tsx
-│   │   │   └── [id]/
 │   │   ├── dashboard/
 │   │   │   └── page.tsx
 │   │   ├── orders/
 │   │   │   ├── page.tsx
-│   │   │   └── [id]/
 │   │   ├── pos/
 │   │   │   └── page.tsx
 │   │   ├── products/
 │   │   │   ├── page.tsx
-│   │   │   └── [id]/
 │   │   └── layout.tsx
 │   ├── globals.css
 │   ├── layout.tsx
@@ -66,11 +52,7 @@ jumbo-commercial-front-end/
 │   ├── store/
 │   │   ├── alertStore.ts
 │   │   └── cartStore.ts
-│   └── types/
-│       ├── api.types.ts
-│       ├── customer.types.ts
-│       ├── order.types.ts
-│       └── product.types.ts
+│   └── types
 ├── node_modules/
 ├── public/
 │   └── assets/
