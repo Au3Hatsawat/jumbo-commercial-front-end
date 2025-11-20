@@ -125,14 +125,12 @@ npm install
 
 ```env
 # API Configuration
-NEXT_PUBLIC_API_URL=http://localhost:8080/api
+NEXT_PUBLIC_API_BASE_URL=http://localhost:8080/api
 
 # App Configuration
 NEXT_PUBLIC_APP_NAME=Jumbo Commercial
 NEXT_PUBLIC_APP_VERSION=1.0.0
 
-# Optional: Production API URL
-# NEXT_PUBLIC_API_URL=https://api.your-domain.com/api
 ```
 
 4. รัน development server
