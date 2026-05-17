@@ -11,3 +11,9 @@ export async function getOrders(): Promise<Order[]> {
     return response.data as Order[];
 }
 
+export async function getOrderReceipt(orderId: number): Promise<Blob> {
+    const response = await api.get(`/orders/${orderId}/receipt`, {
+        responseType: 'blob'
+    });
+    return response.data;
+}

@@ -1,4 +1,3 @@
-// components/providers/AppProviders.tsx
 'use client';
 
 import { ReactNode, useState } from 'react';

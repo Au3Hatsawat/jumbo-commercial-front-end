@@ -1,0 +1,728 @@
+{
+  "Common": {
+    "search": "Search...",
+    "clear": "Clear",
+    "save": "Save",
+    "cancel": "Cancel",
+    "table": {
+      "emptyTitle": "No data found",
+      "emptyDesc": "Try adjusting your filters or search terms",
+      "showing": "Showing",
+      "to": "to",
+      "from": "of",
+      "records": "records",
+      "page": "Page",
+      "of": "of"
+    },
+    "form": {
+      "selectPrefix": "Select ",
+      "imagePreview": "Image Preview",
+      "cancel": "Cancel",
+      "save": "Save",
+      "processing": "Processing..."
+    }
+  },
+  "header": {
+    "pageNames": {
+      "dashboard": "Dashboard",
+      "pos": "Point of Sale (POS)",
+      "products": "Product Management",
+      "orders": "Order History",
+      "customers": "Customer Management",
+      "units": "Units",
+      "categories": "Categories",
+      "default": "System Overview"
+    }
+  },
+  "Navigation": {
+    "dashboard": "Dashboard",
+    "pos": "POS",
+    "products": "Products",
+    "orders": "Order History",
+    "customers": "Customers",
+    "settings": "Settings",
+    "categories": "Categories",
+    "units": "Units"
+  },
+  "products": {
+    "loading": "Loading products...",
+    "searchPlaceholder": "Search products (name or barcode)...",
+    "stats": {
+      "totalProducts": "Total Products",
+      "lowStock": "Low Stock (≤5)",
+      "outOfStock": "Out of Stock",
+      "totalValue": "Total Stock Value"
+    },
+    "actions": {
+      "addProduct": "Add Product"
+    },
+    "filters": {
+      "allCategories": "All Categories",
+      "allStock": "All Stock",
+      "inStock": "In Stock (6+)",
+      "lowStock": "Low Stock (≤5)"
+    },
+    "table": {
+      "defaultUnit": "Unit",
+      "image": "Image",
+      "info": "Product Info",
+      "stock": "Stock",
+      "cost": "Avg. Cost",
+      "sellingFormat": "Selling Format",
+      "manage": "Manage",
+      "noPrice": "Price not set",
+      "startsAt": "Starts at",
+      "has": "has",
+      "formats": "formats",
+      "retail": "Retail",
+      "wholesale": "Wholesale",
+      "setPriceTooltip": "Set pricing & formats",
+      "restockTooltip": "Restock & Adjust stock",
+      "editTooltip": "Edit product info"
+    },
+    "create": {
+      "title": "Add Base Product",
+      "subtitle": "Set up base product details before defining selling formats.",
+      "submitBtn": "Save Base Product",
+      "banner": {
+        "title": "Product Creation Flow",
+        "line1": "This page creates the initial product record (with 0 stock and ฿0.00 cost).",
+        "line2": "After creating, you must set up \"Selling Formats (Retail/Wholesale)\" and barcodes in the next step."
+      },
+      "form": {
+        "groups": {
+          "image": {
+            "title": "Product Image",
+            "desc": "Upload an image to display on the storefront and in the inventory system."
+          },
+          "basic": {
+            "title": "Basic Information",
+            "desc": "Main details of the product"
+          },
+          "classification": {
+            "title": "Classification & Base Unit"
+          }
+        },
+        "fields": {
+          "imageLabel": "Product Image",
+          "nameLabel": "Product Name",
+          "namePlaceholder": "e.g. Mineral Water 600ml",
+          "descLabel": "Description",
+          "categoryLabel": "Category",
+          "unitLabel": "Base Unit (for tracking inventory)"
+        }
+      },
+      "messages": {
+        "loadingData": "Loading initial data...",
+        "requiredFields": "Please fill in all required fields.",
+        "success": "Product created successfully! Please add selling formats next.",
+        "uploadFailed": "Product created, but image upload failed.",
+        "error": "Failed to save data"
+      }
+    },
+    "update": {
+      "title": "Edit Base Product",
+      "subtitle": "System Product ID:",
+      "submitBtn": "Save Changes",
+      "banner": {
+        "title": "Need to edit prices or barcodes?",
+        "line1": "This page is for editing basic information only. If you want to add/remove selling formats, change barcodes, or update prices,",
+        "line2": "please navigate to the",
+        "highlight": "Pricing & Formats",
+        "line3": "menu for this product."
+      },
+      "form": {
+        "groups": {
+          "image": {
+            "title": "Main Product Image",
+            "desc": "Upload a new image to replace the current one (leave empty if no changes are needed)."
+          },
+          "basic": {
+            "title": "Basic Information",
+            "desc": "Main details of the product"
+          },
+          "classification": {
+            "title": "Classification & Base Unit"
+          }
+        },
+        "fields": {
+          "imageLabel": "Product Image",
+          "nameLabel": "Product Name",
+          "namePlaceholder": "e.g. Mineral Water 600ml",
+          "descLabel": "Description",
+          "categoryLabel": "Category",
+          "unitLabel": "Base Unit (for tracking inventory)"
+        }
+      },
+      "messages": {
+        "loadingData": "Loading product data...",
+        "notFound": "Product not found",
+        "backToProducts": "Back to Product List",
+        "requiredFields": "Please fill in all required fields.",
+        "success": "Product updated successfully!",
+        "uploadFailed": "Product updated, but the new image failed to upload.",
+        "error": "Failed to update data:"
+      }
+    },
+    "restock": {
+      "title": "Restock / Adjust Inventory",
+      "subtitle": "Product:",
+      "currentStockLabel": "Current System Stock (Base Unit)",
+      "avgCostLabel": "Avg. Cost (per 1",
+      "submitBtn": "Save Adjustments",
+      "preview": {
+        "title": "Calculation Preview",
+        "baseQuantity": "Converted to Base Unit (Actual Stock)",
+        "avgCost": "Avg. Cost (per 1",
+        "newStock": "Estimated Stock After Save:"
+      },
+      "infoBanner": {
+        "line1": "The system will automatically multiply the quantity and divide the cost to store it in base units.",
+        "line2": "(You can enter the bulk pack price directly)"
+      },
+      "form": {
+        "groups": {
+          "details": {
+            "title": "Adjustment Details"
+          }
+        },
+        "fields": {
+          "stockType": "Transaction Type",
+          "unitSelector": "Unit Format",
+          "quantity": "Quantity",
+          "costPrice": "Cost per 1",
+          "direction": "Adjustment Direction",
+          "note": "Note",
+          "notePlaceholder": "Specify reason e.g. New lot from #INV1234, Damaged items..."
+        },
+        "options": {
+          "baseUnit": "Base Unit - Multiplier x1",
+          "multiplier": "Multiplier",
+          "restock": "RESTOCK - Add stock & recalculate cost",
+          "adjustment": "ADJUSTMENT - Increase/decrease quantity",
+          "damaged": "DAMAGED - Deduct from stock",
+          "increase": "Increase (+)",
+          "decrease": "Decrease (-)"
+        }
+      },
+      "messages": {
+        "loadingData": "Loading product data...",
+        "notFound": "Product not found",
+        "backToProducts": "Back to Product List",
+        "invalidQuantity": "Please specify a valid quantity (greater than 0)",
+        "invalidCost": "Please specify a valid cost",
+        "restockSuccess": "Restock successful! Base stock and average cost updated.",
+        "adjustSuccess": "Stock adjusted successfully!",
+        "error": "An error occurred:"
+      }
+    },
+    "sellingUnits": {
+      "title": "Pricing & Selling Formats",
+      "subtitle": "Add or edit barcodes, prices, and images for retail or wholesale.",
+      "banner": {
+        "title": "Understanding the Multiplier",
+        "line1": "The multiplier is the number of \"base units\" contained in this selling format. For example, if bottled water has a base unit of \"Bottle\",",
+        "line2": "creating a selling format for a \"Pack\" requires setting the multiplier to 12 (so the system deducts 12 bottles when a pack is sold)."
+      },
+      "baseProduct": {
+        "title": "Base Product Details",
+        "name": "Product Name:",
+        "baseUnit": "Base Unit (Inventory):",
+        "avgCost": "Avg. Cost:"
+      },
+      "form": {
+        "groups": {
+          "image": {
+            "titleAdd": "Selling Format Image (Optional)",
+            "titleEdit": "Edit Image"
+          },
+          "basic": {
+            "titleAdd": "Selling Format Details",
+            "titleEdit": "Edit Selling Format Details"
+          }
+        },
+        "fields": {
+          "imageLabel": "Image for this specific format (e.g. Box, Pack)",
+          "barcodeLabel": "Barcode",
+          "barcodePlaceholder": "Scan or type barcode",
+          "unitLabel": "Selling Unit",
+          "multiplierLabel": "Multiplier (Based on base unit)",
+          "multiplierPlaceholder": "e.g. 1, 6, 12",
+          "priceLabel": "Selling Price (฿)",
+          "sellTypeLabel": "Selling Type"
+        },
+        "options": {
+          "retail": "Retail",
+          "wholesale": "Wholesale"
+        },
+        "submitAddBtn": "Add Selling Format",
+        "submitEditBtn": "Save Changes"
+      },
+      "list": {
+        "title": "Configured Selling Formats",
+        "itemsCount": "items",
+        "emptyTitle": "No selling formats yet",
+        "emptySubtitle": "Please add data using the form above.",
+        "cutStock": "Deducts:",
+        "totalCost": "Total Cost:",
+        "profit": "Profit:"
+      },
+      "badges": {
+        "editing": "Editing",
+        "retail": "Retail",
+        "wholesale": "Wholesale"
+      },
+      "tooltips": {
+        "edit": "Edit",
+        "delete": "Delete"
+      },
+      "modal": {
+        "title": "Confirm Deletion",
+        "desc1": "Are you sure you want to delete the selling format",
+        "desc2": "?",
+        "warning": "This action cannot be undone.",
+        "cancelBtn": "Cancel",
+        "confirmBtn": "Delete",
+        "deletingBtn": "Deleting..."
+      },
+      "messages": {
+        "loadingData": "Loading data...",
+        "notFound": "Product not found",
+        "requiredFields": "Please fill in all required fields.",
+        "addSuccess": "Selling format added successfully!",
+        "updateSuccess": "Selling format updated successfully!",
+        "deleteSuccess": "Selling format deleted successfully!",
+        "uploadFailed": "Saved successfully, but failed to upload image.",
+        "error": "An error occurred:",
+        "errorDelete": "Failed to delete:"
+      }
+    }
+  },
+  "orders": {
+    "searchPlaceholder": "Search order No., customer name, phone...",
+    "stats": {
+      "totalRevenue": "Total Revenue",
+      "totalOrders": "Total Orders",
+      "totalProfit": "Gross Profit (Est.)",
+      "avgOrderValue": "Avg. Order Value"
+    },
+    "actions": {
+      "export": "Export"
+    },
+    "filters": {
+      "today": "Today",
+      "yesterday": "Yesterday",
+      "thisWeek": "This Week",
+      "thisMonth": "This Month",
+      "allDate": "All Dates",
+      "allPayment": "All Payments",
+      "cash": "Cash",
+      "qr": "Transfer/QR"
+    },
+    "table": {
+      "orderNo": "Order No.",
+      "dateTime": "Date/Time",
+      "customer": "Customer",
+      "payment": "Payment",
+      "totalAmount": "Net Total",
+      "details": "Details"
+    },
+    "tooltips": {
+      "viewDetails": "View Details",
+      "print": "Print Receipt"
+    },
+    "details": {
+      "title": "Order Details",
+      "generalCustomer": "General Customer",
+      "member": "Member",
+      "tableItem": "Item",
+      "tableQty": "Qty",
+      "tableTotal": "Total",
+      "unknownProduct": "Unknown Product",
+      "paymentMethod": "Payment Method",
+      "totalItems": "Total Items",
+      "itemsCountUnit": "items",
+      "netTotal": "Net Total",
+      "emptyStateLine1": "Select an order on the left",
+      "emptyStateLine2": "to view its details"
+    },
+    "messages": {
+      "loading": "Loading order history...",
+      "errorTitle": "An error occurred",
+      "errorMessage": "Unable to fetch order history"
+    }
+  },
+  "customers": {
+    "searchPlaceholder": "Search customers (Name or Phone)...",
+    "stats": {
+      "totalCustomers": "Total Members",
+      "newMembers": "New Members (This Month)",
+      "activeUsers": "Active (Last 30 Days)",
+      "totalPoints": "Total System Points"
+    },
+    "actions": {
+      "addCustomer": "Add Customer"
+    },
+    "filters": {
+      "spentHigh": "Highest Spent",
+      "spentLow": "Lowest Spent",
+      "pointsHigh": "Highest Points",
+      "recent": "Most Recent",
+      "nameAsc": "Name (A-Z)"
+    },
+    "table": {
+      "customer": "Customer",
+      "totalSpent": "Total Spent",
+      "points": "Points",
+      "lastVisit": "Last Visit",
+      "manage": "Manage"
+    },
+    "tooltips": {
+      "edit": "Edit Customer",
+      "viewDetails": "View Details"
+    },
+    "details": {
+      "unknownName": "Unknown",
+      "totalSpent": "Total Spent",
+      "points": "Points",
+      "generalInfo": "General Information",
+      "lastPurchaseDate": "Last Purchase:",
+      "memberSince": "Member Since:",
+      "recentActivity": "Recent Activity",
+      "noOrders": "No order history yet",
+      "showing": "Showing",
+      "records": "records",
+      "outOf": "out of"
+    },
+    "emptyState": {
+      "selectLeft": "Select a customer on the left",
+      "toViewDetails": "to view details, history, or make a transaction."
+    },
+    "messages": {
+      "loading": "Loading customer data...",
+      "errorTitle": "An error occurred",
+      "errorMessage": "Unable to fetch customer data"
+    },
+    "update": {
+      "title": "Edit Customer Information",
+      "subtitle": "Update the member's details in the system.",
+      "banner": {
+        "title": "Member Information",
+        "desc": "Updating the phone number will not affect the customer's existing purchase history or accumulated points."
+      },
+      "form": {
+        "groups": {
+          "basic": {
+            "title": "Customer / Member Details",
+            "desc": "Edit the customer's phone number or name."
+          }
+        },
+        "fields": {
+          "phoneLabel": "Phone Number (Required)",
+          "phonePlaceholder": "e.g. 0812345678",
+          "nameLabel": "Customer Name (Optional)",
+          "namePlaceholder": "Full Name or Nickname"
+        },
+        "submitBtn": "Save Changes"
+      },
+      "messages": {
+        "loading": "Loading customer data...",
+        "notFoundTitle": "Customer Not Found",
+        "notFoundDesc": "The customer may have been deleted, or an error occurred while fetching data.",
+        "backBtn": "Go Back",
+        "requiredPhone": "Please enter a phone number.",
+        "success": "Customer information updated successfully!",
+        "error": "Failed to update data:"
+      }
+    },
+    "create": {
+      "title": "Add New Customer",
+      "subtitle": "Register a new member into the rewards system.",
+      "banner": {
+        "title": "Member Information",
+        "line1": "The phone number will be used as the primary reference for tracking points.",
+        "line2": "If the customer's name is unknown, you can leave it blank and update it later."
+      },
+      "form": {
+        "groups": {
+          "basic": {
+            "title": "Customer / Member Details",
+            "desc": "Provide phone number and name for new membership registration."
+          }
+        },
+        "fields": {
+          "phoneLabel": "Phone Number (Required)",
+          "phonePlaceholder": "e.g. 0812345678",
+          "nameLabel": "Customer Name (Optional)",
+          "namePlaceholder": "Full Name or Nickname"
+        },
+        "submitBtn": "Save Customer"
+      },
+      "messages": {
+        "requiredPhone": "Please enter a phone number.",
+        "success": "New customer added successfully!",
+        "error": "Failed to add customer:"
+      }
+    }
+  },
+  "categories": {
+    "searchPlaceholder": "Search category name (TH or EN)...",
+    "list": {
+      "showing": "Showing",
+      "items": "items",
+      "outOf": "out of"
+    },
+    "actions": {
+      "addCategory": "Add Category"
+    },
+    "table": {
+      "nameTh": "Category Name (TH)",
+      "nameEn": "Category Name (EN)",
+      "manage": "Manage"
+    },
+    "tooltips": {
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "modal": {
+      "title": "Confirm Deletion",
+      "desc": "Are you sure you want to delete this category? This action cannot be undone.",
+      "warning": "*Note: You cannot delete a category if it is currently assigned to a product.",
+      "cancelBtn": "Cancel",
+      "confirmBtn": "Delete",
+      "deletingBtn": "Deleting..."
+    },
+    "messages": {
+      "loading": "Loading categories...",
+      "deleteSuccess": "Category deleted successfully",
+      "deleteError": "Unable to delete data:"
+    },
+    "update": {
+      "title": "Edit Category",
+      "subtitle": "Update the existing category details in the system.",
+      "form": {
+        "groups": {
+          "basic": {
+            "title": "Category Information",
+            "desc": "Edit the category name you want to use in the system."
+          }
+        },
+        "fields": {
+          "nameThLabel": "Category Name (Thai)",
+          "nameThPlaceholder": "e.g. เครื่องดื่ม, อาหารว่าง, ของใช้ทั่วไป",
+          "nameEnLabel": "Category Name (English)",
+          "nameEnPlaceholder": "e.g. Beverages, Snacks, Utilities"
+        },
+        "submitBtn": "Save Changes"
+      },
+      "messages": {
+        "loading": "Loading category data...",
+        "notFound": "Category not found",
+        "backBtn": "Back to Category List",
+        "requiredFields": "Please fill in all fields.",
+        "success": "Category updated successfully!",
+        "error": "Failed to update data:"
+      }
+    },
+    "create": {
+      "title": "Add New Category",
+      "subtitle": "Create a new category to organize your products.",
+      "form": {
+        "groups": {
+          "basic": {
+            "title": "Category Information",
+            "desc": "Specify the category name to be used in the system."
+          }
+        },
+        "fields": {
+          "nameThLabel": "Category Name (Thai)",
+          "nameThPlaceholder": "e.g. เครื่องดื่ม, อาหารว่าง, ของใช้ทั่วไป",
+          "nameEnLabel": "Category Name (English)",
+          "nameEnPlaceholder": "e.g. Beverages, Snacks, Utilities"
+        },
+        "submitBtn": "Save Category"
+      },
+      "messages": {
+        "success": "Category saved successfully!",
+        "error": "Failed to save data."
+      }
+    }
+  },
+  "units": {
+    "searchPlaceholder": "Search unit name (TH or EN)...",
+    "list": {
+      "showing": "Showing",
+      "items": "items",
+      "outOf": "out of"
+    },
+    "actions": {
+      "addUnit": "Add Unit"
+    },
+    "table": {
+      "nameTh": "Unit Name (TH)",
+      "nameEn": "Unit Name (EN)",
+      "manage": "Manage"
+    },
+    "tooltips": {
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "modal": {
+      "title": "Confirm Deletion",
+      "desc": "Are you sure you want to delete this unit? This action cannot be undone.",
+      "warning": "*Note: You cannot delete a unit if it is currently assigned to a product.",
+      "cancelBtn": "Cancel",
+      "confirmBtn": "Delete",
+      "deletingBtn": "Deleting..."
+    },
+    "messages": {
+      "loading": "Loading units...",
+      "deleteSuccess": "Unit deleted successfully",
+      "deleteError": "Unable to delete data:"
+    },
+    "update": {
+      "title": "Edit Unit",
+      "subtitle": "Update the existing unit details in the system.",
+      "form": {
+        "groups": {
+          "basic": {
+            "title": "Unit Information",
+            "desc": "Edit the unit name you want to use in the system."
+          }
+        },
+        "fields": {
+          "nameThLabel": "Unit Name (Thai)",
+          "nameThPlaceholder": "e.g. ชิ้น, กล่อง, ขวด",
+          "nameEnLabel": "Unit Name (English)",
+          "nameEnPlaceholder": "e.g. Piece, Box, Bottle"
+        },
+        "submitBtn": "Save Changes"
+      },
+      "messages": {
+        "loading": "Loading unit data...",
+        "notFound": "Unit not found",
+        "backBtn": "Back to Unit List",
+        "requiredFields": "Please fill in all fields.",
+        "success": "Unit updated successfully!",
+        "error": "Failed to update data:"
+      }
+    },
+    "create": {
+      "title": "Add New Unit",
+      "subtitle": "Create a new unit for product management.",
+      "form": {
+        "groups": {
+          "basic": {
+            "title": "Unit Information",
+            "desc": "Specify the unit name to be used in the system."
+          }
+        },
+        "fields": {
+          "nameThLabel": "Unit Name (Thai)",
+          "nameThPlaceholder": "e.g. ชิ้น, กล่อง, ขวด",
+          "nameEnLabel": "Unit Name (English)",
+          "nameEnPlaceholder": "e.g. Piece, Box, Bottle"
+        },
+        "submitBtn": "Save Unit"
+      },
+      "messages": {
+        "success": "Unit saved successfully!",
+        "error": "Failed to save data."
+      }
+    }
+  },
+  "pos": {
+    "productCard": {
+      "retailBadge": "Retail",
+      "wholesaleBadge": "Wholesale",
+      "lowStock": "{count} left",
+      "barcode": "Barcode"
+    },
+    "searchPlaceholder": "Search products (name or barcode)...",
+    "categories": {
+      "allCategories": "All Categories",
+      "otherCategory": "Others",
+      "allStock": "All Stock",
+      "inStock": "In Stock (6+)",
+      "lowStock": "Low Stock (≤5)",
+      "allPrices": "All Prices",
+      "priceLow": "Under ฿50",
+      "priceMedium": "฿50 - ฿200",
+      "priceHigh": "Over ฿200"
+    },
+    "cart": {
+      "title": "Current Order",
+      "itemsCount": "items",
+      "emptyTitle": "Cart is empty",
+      "guestTab": "Guest",
+      "memberTab": "Member / New",
+      "phonePlaceholder": "Phone Number (Required)",
+      "namePlaceholder": "Customer Name (Optional)",
+      "netTotal": "Net Total",
+      "cashBtn": "Cash",
+      "qrBtn": "Transfer / QR",
+      "payBtn": "Checkout",
+      "payCash": "Cash",
+      "payQr": "QR",
+      "processing": "Processing...",
+      "clearCart": "Clear Cart"
+    },
+    "messages": {
+      "loading": "Loading products...",
+      "emptyProducts": "No products found",
+      "requireItems": "Please add items to cart before checkout",
+      "requirePhone": "Please enter customer phone number",
+      "defaultMemberName": "Member Customer",
+      "success": "Transaction successful! Order No:",
+      "error": "An error occurred:"
+    }
+  },
+  "dashboard": {
+    "stats": {
+      "sales": "Total Sales",
+      "profit": "Net Profit",
+      "orders": "Total Orders",
+      "cost": "Cost of Goods",
+      "fromDays": "Past {days} days",
+      "ofSales": "of sales",
+      "avg": "Avg",
+      "bill": "bill"
+    },
+    "filters": {
+      "timeRange": "Time Range",
+      "days": "Days",
+      "refresh": "Refresh Data"
+    },
+    "charts": {
+      "salesTrend": "Sales & Profit Trend",
+      "categoryShare": "Sales by Category",
+      "paymentShare": "Payment Methods (Revenue)",
+      "tooltipSales": "Sales",
+      "sales": "Total Sales",
+      "profit": "Net Profit",
+      "emptyPayment": "No payment data available"
+    },
+    "topProducts": {
+      "title": "Top Selling Products (Top 5)",
+      "sortBy": "Sorted by total sales",
+      "rank": "Rank",
+      "productName": "Product Name",
+      "quantity": "Units Sold",
+      "totalSales": "Total Revenue",
+      "empty": "No top selling products data available for this period."
+    },
+    "topCustomers": {
+      "title": "Top Customers (Top 5)",
+      "sortBy": "Sorted by accumulated purchases",
+      "rank": "Rank",
+      "customerName": "Customer Name / Phone",
+      "totalSales": "Total Purchases",
+      "empty": "No customer data available for this period."
+    },
+    "messages": {
+      "errorTitle": "Error Fetching Data",
+      "errorDesc": "Unable to connect to the backend to retrieve Dashboard data.",
+      "processing": "Processing data..."
+    }
+  }
+}

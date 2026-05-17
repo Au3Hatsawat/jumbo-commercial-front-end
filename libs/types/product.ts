@@ -3,51 +3,92 @@ import { OrderItem } from "./order";
 import { StockLog } from "./stock";
 import { Unit } from "./unit";
 
+export enum SELLTYPE {
+  RETAIL = 'RETAIL',
+  WHOLESALE = 'WHOLESALE'
+}
+
+export interface ProductSellingUnit {
+  id: number;
+  productId: number;
+  barcode: string;
+  unitId: number;
+  multiplier: number;
+  price: string;
+  sellType: SELLTYPE | string;
+  createdAt: string;
+  updatedAt: string;
+  imageUrl: string | null;
+
+
+  unit?: Unit;
+  product?: Product;
+}
+
 export interface Product {
   id: number;
-  barcode: string; // บาร์โค้ด
   name: string;
   description: string | null;
   imageUrl: string | null;
   categoryId: number;
-  unitId: number;
+  baseUnitId: number;
 
-  // ราคาและต้นทุน
-  sellingPrice: string; // ราคาขายหน้าร้าน (Decimal)
-  averageCost: string; // ต้นทุนเฉลี่ย (Decimal)
+  averageCost: string;
 
-  // คลังสินค้า
   currentStock: number;
 
   createdAt: string;
   updatedAt: string;
+  vatRate: number;
 
-  // relations
   category: Category;
-  unit: Unit;
+  baseUnit: Unit;
+  sellingUnits?: ProductSellingUnit[];
   stockLogs?: StockLog[];
   orderItems?: OrderItem[];
 }
 
-// Type สำหรับ Item ในตะกร้าสินค้า
 export interface CartItem {
   productId: number;
+  sellingUnitId: number;
+  barcode: string;
   name: string;
+  unitName: string;
+  multiplier: number;
+  sellType: string;
   quantity: number;
-  price: number; // ราคา Snapshot (แปลงเป็น number ได้ เพราะใช้สำหรับ calculation ใน Cart)
+  price: number;
   total: number;
-  // **สำคัญ:** ควรเพิ่มต้นทุนที่ Snapshot เพื่อใช้ใน OrderItem
   costAtSale: number;
 }
 
-export interface ProductCreatePayload {
+export interface ISellingUnitDto {
   barcode: string;
-  name: string;
-  sellingPrice: number;
-  categoryId: number;
   unitId: number;
+  multiplier: number;
+  price: number;
+  sellType: SELLTYPE | string;
+}
+
+export interface IAddSellingUnitDto {
+  barcode: string;
+  unitId: number;
+  multiplier: number;
+  price: number;
+  sellType: SELLTYPE | string;
+}
+
+export interface SellingUnitUpdatePayload extends Partial<IAddSellingUnitDto> {
+  id: number;
+}
+
+export interface ProductCreatePayload {
+  name: string;
+  categoryId: number;
+  baseUnitId: number;
   description?: string;
   imageUrl?: string;
+  sellingUnits: ISellingUnitDto[];
 }
 
 export interface ProductUpdatePayload extends Partial<ProductCreatePayload> {

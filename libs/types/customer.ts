@@ -3,13 +3,12 @@ import { Order } from "./order";
 export interface Customer {
   id: number;
   name: string | null;
-  phoneNumber: string; // ใช้เบอร์โทรเป็น Member ID
-  points: number; // แต้มสะสม
+  phoneNumber: string;
+  points: number;
 
-  createdAt: string; // DateTime
-  updatedAt: string; // DateTime
+  createdAt: string;
+  updatedAt: string;
 
-  // relations
   orders?: Order[];
 }
 

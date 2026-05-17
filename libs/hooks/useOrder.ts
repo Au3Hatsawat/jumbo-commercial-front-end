@@ -1,14 +1,16 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { ProductStockPayload } from '../types/stock';
 import { ICreateOrderDto, Order } from '../types/order';
-import { createOrder, getOrders } from '../api/order';
+import { createOrder, getOrderReceipt, getOrders } from '../api/order';
 import { createStockLog } from '../api/product';
 import { Product } from '../types/product';
+import { ErrorResponse } from '@/utils/errorMapping';
+import { AxiosError } from 'axios';
 
 export const useCreateOrder = () => {
     const queryClient = useQueryClient();
 
-    return useMutation<Order, Error, ICreateOrderDto>({ 
+    return useMutation<Order, AxiosError<ErrorResponse>, ICreateOrderDto>({ 
         mutationFn: createOrder,
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['products'] }); 
@@ -23,7 +25,7 @@ export const useCreateOrder = () => {
 export const useCreateStockLog = () => {
     const queryClient = useQueryClient();
 
-    return useMutation<Product, Error, ProductStockPayload>({
+    return useMutation<Product, AxiosError<ErrorResponse>, ProductStockPayload>({
         mutationFn: (({productId ,quantity ,note, stockType}) => createStockLog(productId , {quantity , note, stockType})),
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['products'] }); 
@@ -33,8 +35,14 @@ export const useCreateStockLog = () => {
 };
 
 export const useGetOrders = () => {
-  return useQuery<Order[], Error>({
+  return useQuery<Order[], AxiosError<ErrorResponse>>({
     queryKey: ['orders'], 
     queryFn: getOrders,
   });
+};
+
+export const usePrintReceipt = () => {
+    return useMutation<Blob, AxiosError<ErrorResponse>, number>({
+        mutationFn: (orderId: number) => getOrderReceipt(orderId),
+    });
 };

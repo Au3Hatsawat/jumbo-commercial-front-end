@@ -1,18 +1,20 @@
 import { useQuery } from '@tanstack/react-query';
-import { CategoryDistribution, DashboardSummary, TopProduct } from '../types/analytic';
-import { getCategoryDistribution, getDashboardSummary, getTopProducts } from '../api/analytic';
+import { CategoryDistribution, DashboardSummary, PaymentDistribution, TopCustomer, TopProduct } from '../types/analytic';
+import { getCategoryDistribution, getDashboardSummary, getPaymentDistribution, getTopCustomers, getTopProducts } from '../api/analytic';
+import { ErrorResponse } from '@/utils/errorMapping';
+import { AxiosError } from 'axios';
 
 export const useDashboardSummary = (days: number = 30) => {
-  return useQuery<DashboardSummary[], Error>({
+  return useQuery<DashboardSummary[], AxiosError<ErrorResponse>>({
     queryKey: ['analytics', 'summary', days], 
     queryFn: () => getDashboardSummary(days),
-    staleTime: 1000 * 60 * 5, // cache 5 นาที เพราะข้อมูล Analytics ไม่ได้เปลี่ยนระดับวินาที
-    refetchOnWindowFocus: false, // ไม่ต้องดึงใหม่ทุกครั้งที่สลับจอ (Optional)
+    staleTime: 1000 * 60 * 5, 
+    refetchOnWindowFocus: false,
   });
 };
 
 export const useTopProducts = () => {
-  return useQuery<TopProduct[], Error>({
+  return useQuery<TopProduct[], AxiosError<ErrorResponse>>({
     queryKey: ['analytics', 'top-products'],
     queryFn: getTopProducts,
     staleTime: 1000 * 60 * 5,
@@ -20,9 +22,26 @@ export const useTopProducts = () => {
 };
 
 export const useCategoryDistribution = (days: number = 30) => {
-  return useQuery<CategoryDistribution[], Error>({
+  return useQuery<CategoryDistribution[], AxiosError<ErrorResponse>>({
     queryKey: ['analytics', 'category-distribution', days],
     queryFn: () => getCategoryDistribution(days),
+    staleTime: 1000 * 60 * 5,
+  });
+};
+
+export const usePaymentDistribution = (days: number = 30) => {
+  return useQuery<PaymentDistribution[], AxiosError<ErrorResponse>>({
+    queryKey: ['analytics', 'payment-distribution', days],
+    queryFn: () => getPaymentDistribution(days),
+    staleTime: 1000 * 60 * 5,
+    refetchOnWindowFocus: false,
+  });
+};
+
+export const useTopCustomers = () => {
+  return useQuery<TopCustomer[], AxiosError<ErrorResponse>>({
+    queryKey: ['analytics', 'top-customers'],
+    queryFn: getTopCustomers,
     staleTime: 1000 * 60 * 5,
   });
 };

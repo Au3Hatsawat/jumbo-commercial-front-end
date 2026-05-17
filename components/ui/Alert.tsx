@@ -3,10 +3,8 @@
 import React, { HTMLAttributes } from 'react';
 import { Info, CheckCircle, AlertTriangle, XCircle, X } from 'lucide-react';
 
-// Define Types
 type AlertType = 'success' | 'error' | 'warning' | 'info';
 
-// 🚨 Extend HTMLAttributes<HTMLDivElement> เพื่อให้รับ className ได้
 interface AlertProps extends HTMLAttributes<HTMLDivElement> {
   type: AlertType;
   message: string;
@@ -15,7 +13,6 @@ interface AlertProps extends HTMLAttributes<HTMLDivElement> {
   closable?: boolean;
 }
 
-// Configuration Map
 const config = {
   success: {
     icon: CheckCircle,
@@ -49,8 +46,8 @@ export const Alert: React.FC<AlertProps> = ({
   description, 
   onClose, 
   closable = true,
-  className, // 🚨 รับ className เข้ามา
-  ...rest // รับ props อื่น ๆ ที่เหลือ (เช่น style, title)
+  className, 
+  ...rest 
 }) => {
   const { icon: Icon, base, iconColor, buttonHover } = config[type];
 
@@ -64,7 +61,7 @@ export const Alert: React.FC<AlertProps> = ({
         transition-all duration-300
       `}
       role="alert"
-      {...rest} // 🚨 Spread props ที่เหลือ
+      {...rest} 
     >
       <div className="flex items-start gap-3">
         {/* Icon */}
