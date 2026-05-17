@@ -125,9 +125,9 @@ export default function RestockProductPage() {
 
     if (!product) {
         return (
-            <div className="flex flex-col justify-center items-center h-[calc(100vh-8rem)] text-gray-600 gap-3">
-                <p className="text-xl font-bold">{t('messages.notFound') || 'ไม่พบข้อมูลสินค้า'}</p>
-                <button onClick={() => router.push('/products')} className="text-emerald-600 hover:underline font-bold">
+            <div className="flex flex-col justify-center items-center h-[calc(100vh-8rem)] text-gray-600 gap-3 p-4 text-center">
+                <p className="text-lg sm:text-xl font-bold">{t('messages.notFound') || 'ไม่พบข้อมูลสินค้า'}</p>
+                <button onClick={() => router.push('/products')} className="text-emerald-600 hover:underline font-bold text-sm sm:text-base">
                     {t('messages.backToProducts') || 'กลับไปหน้ารายการสินค้า'}
                 </button>
             </div>
@@ -135,57 +135,57 @@ export default function RestockProductPage() {
     }
 
     return (
-        <div className="p-6 max-w-4xl mx-auto">
+        <div className="p-4 sm:p-6 max-w-4xl mx-auto pb-safe">
             {/* Header */}
-            <div className="flex items-center gap-4 mb-6">
-                <button onClick={() => router.push('/products')} className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors">
-                    <ChevronLeft className="w-5 h-5" />
+            <div className="flex items-start sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                <button onClick={() => router.push('/products')} className="p-2 -ml-2 sm:ml-0 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors shrink-0">
+                    <ChevronLeft className="w-6 h-6 sm:w-5 sm:h-5" />
                 </button>
                 <div>
-                    <h1 className="text-2xl font-bold text-gray-800 flex items-center">
+                    <h1 className="text-xl sm:text-2xl font-bold text-gray-800 flex items-center leading-tight">
                         {t('title') || 'ปรับปรุง/รับเข้าสต็อก'}
                     </h1>
-                    <p className="text-sm text-gray-500 mt-1">{t('subtitle') || 'สินค้า:'} {product.name}</p>
+                    <p className="text-xs sm:text-sm text-gray-500 mt-1">{t('subtitle') || 'สินค้า:'} {product.name}</p>
                 </div>
             </div>
 
             {/* Current Stock Banner */}
-            <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm mb-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="bg-white rounded-xl border border-gray-200 p-4 sm:p-5 shadow-sm mb-4 sm:mb-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-3 sm:gap-4">
                 <div>
-                    <span className="text-sm font-medium text-gray-500 block mb-1">{t('currentStockLabel') || 'สต็อกในระบบปัจจุบัน (หน่วยหลัก)'}</span>
-                    <div className="text-3xl font-bold text-gray-800">
-                        {product.currentStock} <span className="text-base font-medium text-gray-500 ml-1">{baseUnitName}</span>
+                    <span className="text-xs sm:text-sm font-medium text-gray-500 block mb-1">{t('currentStockLabel') || 'สต็อกในระบบปัจจุบัน (หน่วยหลัก)'}</span>
+                    <div className="text-2xl sm:text-3xl font-bold text-gray-800">
+                        {product.currentStock} <span className="text-sm sm:text-base font-medium text-gray-500 ml-1">{baseUnitName}</span>
                     </div>
                 </div>
                 {product.averageCost && (
-                    <div className="md:text-right bg-orange-50 px-4 py-2 rounded-lg border border-orange-100">
-                        <span className="text-sm text-orange-600 block">{t('avgCostLabel') || 'ต้นทุนเฉลี่ย (ต่อ 1'} {baseUnitName}):</span>
+                    <div className="w-full md:w-auto text-left md:text-right bg-orange-50 px-4 py-3 sm:py-2 rounded-lg border border-orange-100">
+                        <span className="text-xs sm:text-sm text-orange-600 block mb-1 md:mb-0">{t('avgCostLabel') || 'ต้นทุนเฉลี่ย (ต่อ 1'} {baseUnitName}):</span>
                         <span className="font-bold text-orange-700 text-lg">฿{parseFloat(product.averageCost).toFixed(2)}</span>
                     </div>
                 )}
             </div>
 
             {/* Preview Banner */}
-            <div className={`rounded-xl border p-5 shadow-sm mb-6 ${
+            <div className={`rounded-xl border p-4 sm:p-5 shadow-sm mb-4 sm:mb-6 ${
                 calculation.diff === 0 ? 'bg-gray-50 border-gray-200' :
                 calculation.diff > 0 ? 'bg-emerald-50 border-emerald-200' : 'bg-red-50 border-red-200'
             }`}>
-                <div className="flex justify-between items-start mb-3">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-3">
                     <span className="text-sm font-bold text-gray-700">{t('preview.title') || 'พรีวิวการคำนวณเข้าระบบ'}</span>
                     {calculation.diff !== 0 && (
-                        <div className={`flex items-center text-xs font-bold px-2 py-1 rounded-md ${
+                        <div className={`self-start sm:self-auto flex items-center text-[11px] sm:text-xs font-bold px-2 py-1 rounded-md ${
                             calculation.diff > 0 ? 'bg-emerald-100 text-emerald-700' : 'bg-red-100 text-red-700'
                         }`}>
-                            {calculation.diff > 0 ? <TrendingUp className="w-4 h-4 mr-1" /> : <TrendingDown className="w-4 h-4 mr-1" />}
+                            {calculation.diff > 0 ? <TrendingUp className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1" /> : <TrendingDown className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1" />}
                             {calculation.diff > 0 ? '+' : ''}{calculation.diff} {baseUnitName}
                         </div>
                     )}
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm bg-white p-3 rounded-lg border border-gray-100">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 text-xs sm:text-sm bg-white p-3 rounded-lg border border-gray-100">
                     <div>
                         <span className="text-gray-500 block mb-1">{t('preview.baseQuantity') || 'แปลงเป็นหน่วยหลัก (เข้าสต็อกจริง)'}</span>
-                        <span className="font-bold text-gray-800 text-base">{calculation.baseQuantity} {baseUnitName}</span>
+                        <span className="font-bold text-gray-800 text-sm sm:text-base">{calculation.baseQuantity} {baseUnitName}</span>
                         {calculation.multiplier > 1 && (
                             <span className="text-xs text-gray-400 ml-2">({formData.quantity || 0} {calculation.unitName} × {calculation.multiplier})</span>
                         )}
@@ -194,47 +194,49 @@ export default function RestockProductPage() {
                     {formData.stockType === StockType.RESTOCK && (
                         <div>
                             <span className="text-gray-500 block mb-1">{t('preview.avgCost') || 'เฉลี่ยต้นทุน (ต่อ 1'} {baseUnitName})</span>
-                            <span className="font-bold text-emerald-600 text-base">฿{calculation.costPerBaseUnit.toFixed(2)}</span>
+                            <span className="font-bold text-emerald-600 text-sm sm:text-base">฿{calculation.costPerBaseUnit.toFixed(2)}</span>
                             {calculation.multiplier > 1 && (
-                                <span className="text-xs text-gray-400 ml-2">(฿{formData.costPrice || 0} ÷ {calculation.multiplier})</span>
+                                <span className="text-xs text-gray-400 ml-2 block sm:inline mt-0.5 sm:mt-0">(฿{formData.costPrice || 0} ÷ {calculation.multiplier})</span>
                             )}
                         </div>
                     )}
                 </div>
 
                 <div className="mt-3 pt-3 border-t border-gray-200/60 flex items-baseline gap-2">
-                    <span className="text-sm font-medium text-gray-600">{t('preview.newStock') || 'สต็อกคงเหลือหลังบันทึก:'}</span>
-                    <span className={`text-xl font-bold ${
+                    <span className="text-xs sm:text-sm font-medium text-gray-600">{t('preview.newStock') || 'สต็อกคงเหลือหลังบันทึก:'}</span>
+                    <span className={`text-lg sm:text-xl font-bold ${
                         calculation.diff === 0 ? 'text-gray-800' :
                         calculation.diff > 0 ? 'text-emerald-700' : 'text-red-700'
                     }`}>
                         {calculation.newStock}
                     </span>
-                    <span className="text-sm font-medium text-gray-600">{baseUnitName}</span>
+                    <span className="text-xs sm:text-sm font-medium text-gray-600">{baseUnitName}</span>
                 </div>
             </div>
 
             {/* Information Box */}
             {calculation.multiplier > 1 && formData.stockType === StockType.RESTOCK && (
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-6 text-sm flex items-start gap-2 text-blue-800">
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 sm:p-4 mb-4 sm:mb-6 text-xs sm:text-sm flex items-start gap-2 text-blue-800">
                     <Info className="w-5 h-5 shrink-0 mt-0.5 text-blue-600" />
-                    <p>
-                        {t('infoBanner.line1') || 'ระบบจะทำการ คูณจำนวนและหารต้นทุน ให้อัตโนมัติ เพื่อนำไปเก็บเป็นหน่วยชิ้นเล็กในคลังสินค้า'} <br/>
+                    <p className="leading-relaxed">
+                        {t('infoBanner.line1') || 'ระบบจะทำการ คูณจำนวนและหารต้นทุน ให้อัตโนมัติ เพื่อนำไปเก็บเป็นหน่วยชิ้นเล็กในคลังสินค้า'} <br className="hidden sm:block"/>
                         {t('infoBanner.line2') || '(คุณสามารถกรอกราคายกแพ็คได้เลย)'}
                     </p>
                 </div>
             )}
 
             {/* Dynamic Form */}
-            <DynamicForm<RestockFormState>
-                dataForm={formData}
-                groups={formGroups}
-                onChange={handleChange}
-                onSubmit={handleSubmit}
-                isSubmitting={isPending}
-                onCancel={() => router.push('/products')}
-                submitLabel={t('submitBtn') || 'บันทึกการปรับปรุง'}
-            />
+            <div className="mb-8 sm:mb-0">
+                <DynamicForm<RestockFormState>
+                    dataForm={formData}
+                    groups={formGroups}
+                    onChange={handleChange}
+                    onSubmit={handleSubmit}
+                    isSubmitting={isPending}
+                    onCancel={() => router.push('/products')}
+                    submitLabel={t('submitBtn') || 'บันทึกการปรับปรุง'}
+                />
+            </div>
         </div>
     );
 }

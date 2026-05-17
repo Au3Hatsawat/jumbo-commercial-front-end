@@ -133,7 +133,7 @@ export default function DashboardPage() {
                                 </h3>
                             </div>
                             <div className="h-[300px] w-full">
-                                <ResponsiveContainer aspect={undefined} width="100%" height="100%">
+                                <ResponsiveContainer aspect={undefined} width="100%" height="100%" minWidth={1} minHeight={1}>
                                     <AreaChart data={summaryData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
                                         <defs>
                                             <linearGradient id="colorSales" x1="0" y1="0" x2="0" y2="1">
@@ -196,7 +196,7 @@ export default function DashboardPage() {
                                 {t('charts.categoryShare') || 'สัดส่วนยอดขาย (หมวดหมู่)'}
                             </h3>
                             <div className="flex-1 min-h-[250px]">
-                                <ResponsiveContainer minWidth={0} width="100%" height="100%">
+                                <ResponsiveContainer width="100%" height="100%" minWidth={1} minHeight={1}>
                                     <PieChart>
                                         <Pie
                                             data={categoryData}
@@ -285,7 +285,7 @@ export default function DashboardPage() {
                             </h3>
                             <div className="flex-1 min-h-[250px]">
                                 {paymentData.length > 0 ? (
-                                    <ResponsiveContainer minWidth={0} width="100%" height="100%">
+                                    <ResponsiveContainer width="100%" height="100%" minWidth={1} minHeight={1}>
                                         <PieChart>
                                             <Pie
                                                 data={paymentData}
